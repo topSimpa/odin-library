@@ -15,8 +15,17 @@ function Book(author, title, pages, read, coverColor="brown") {
     this.coverColor = coverColor;
 }
 
+Book.prototype.display = function () {
+    return `${this.title} by ${this.author}`;
+}
+
 function addBookToLibrary(author, title, pages, read, coverColor="brown") {
-    const newBook = new Book(author, title, pages, coverColor);
+    const newBook = new Book(author, title, pages, read, coverColor);
     myLibrary.push(newBook);
 }
 
+
+// addBookToLibrary("Simpa", "up and doing", 17, true);
+
+// console.log(myLibrary)
+// console.log(myLibrary[0].display());
