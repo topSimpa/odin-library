@@ -1,3 +1,11 @@
 body {
     background-color: bisque;
 }
+
+dialog {
+    height: 10vh
+}
+dialog::backdrop {
+    background-color: white;
+    opacity: 0.4;
+}
