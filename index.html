@@ -9,11 +9,21 @@
     <title>Library</title>
 </head>
 <body>
-    <button command="show-modal" commandfor="my-dialog">Open dialog</button>
-
-    <dialog id="my-dialog">
-        <p>This dialog was opened using an invoker command.</p>
-        <button commandfor="my-dialog" command="close">Close</button>
-    </dialog>
+    <div class="header">
+        <div class="logo-box">
+            <img src="./image/book.svg">
+            <h1>OdinLibrary</h1>
+        </div>
+    </div>
+    <div class="main">
+        <div class="all-books">
+            <h2>All Books</h2>
+            <ul class="shelve"></ul>
+        </div>
+        <div class="unread-books">
+            <h2></h2>
+        </div>
+    </div>
+    <div class="book-viewer"></div>
 </body>
 </html>

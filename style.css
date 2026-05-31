@@ -1,11 +1,82 @@
 body {
-    background-color: bisque;
+    background-color: #E2E8F0;
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    grid-template-rows: auto 1fr;
+    font-family: "Roboto";
+    min-height: 100vh;
 }
 
-dialog {
+
+.header {
+    grid-column: 1 / span 2;
+    background-color: white;
+    padding:16px;
+}
+
+.header .logo-box {
+    display: flex;
+    gap: 4px;
+}
+
+.logo-box img {
+    width: 32px;
+}
+
+.main {
+    padding: 24px 24px 24px 100px;
+}
+
+.all-books {
+    background-color: white;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding: 24px;
+}
+
+.shelve {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 120px);
+    gap: 24px;
+}
+
+.shelve-space {
+    padding: 16px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.cover {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    background-color: #fafffd;
+    padding: 8px;
+    border: none;
+    box-shadow: 4px 4px 4px 4px rgb(0 0 0 /20%);
+}
+
+.caption {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* dialog {
     height: 10vh
 }
 dialog::backdrop {
     background-color: white;
     opacity: 0.4;
+} */
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Regular.woff2') format('woff2'),
+        url('./fonts/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
