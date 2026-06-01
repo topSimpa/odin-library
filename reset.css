@@ -57,6 +57,11 @@ a {
    text-decoration: none;
 }
 
+/* button should always change cursor to pointer */
+button {
+    cursor: pointer
+}
+
 /*
   10. Create a root stacking context
 */

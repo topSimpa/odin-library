@@ -15,10 +15,82 @@
             <h1>OdinLibrary</h1>
         </div>
     </div>
+    <div></div>
     <div class="main">
         <div class="all-books">
-            <h2>All Books</h2>
-            <ul class="shelve"></ul>
+            <h3>All Books</h3>
+            <ul class="shelve">
+                <li class="empty-spot spot">
+                    <div class="empty-space">
+                        <button id="add-button" command="show-modal" commandfor="add-book">
+                            +
+                        </button>
+
+                        <dialog id="add-book">
+                            <button id="close-button" commandfor="add-book" command="close">X</button>
+                            <form id="book-form">
+                                <h3>Add a book</h3>
+                                <label for="title">
+                                    <p>Titles<span class="asterisk">*</span></p>
+                                    <input type="text" id="title" name="title" required>
+                                </label>
+                                <label for="author">
+                                    <p>Author<span class="asterisk">*</span></p>
+                                    <input type="text" name="author" id="author" required>
+                                </label>
+                                <label for="pages">
+                                    <p>Number of pages<span class="asterisk">*</span></p>
+                                    <input type="number" name="pages" id="pages" min="1" required>
+                                </label>
+                                <label for="color">Choose book theme color
+                                    <input type="color" name="color" id="color" value="#A52A2A">
+                                </label>
+                                <fieldset>
+                                    <legend>Have you read the book?</legend>
+                                    <p>
+                                        <label>Yes
+                                            <input type="radio" name="read" value="true">
+                                        </label>
+                                        <label>No
+                                            <input type="radio" name="read" value="false" checked>
+                                        </label>
+                                    </p>
+                                </fieldset>
+                                <label>
+                                    <p>Book Summary<span class="asterisk">*</span></p>
+                                    <textarea rows="5" cols="50" minlength="50" name="summary"></textarea>
+                                </label>
+                                <button type="submit" id="submit-book">Add book</button>
+                            </form>
+                        </dialog>
+
+                        <dialog id="book-dialog">
+                            <div class="spot">
+                                <div id="easel">.
+                                    <div class="cover">
+                                        <p class="title"></p>
+                                        <img src="./image/book.svg">
+                                        <p id="book-author"></p>
+                                    </div>
+                                </div>
+                                <p class="caption display">
+                                    <span class="captionTitle"></span>
+                                </p>
+                            </div>
+                            <div id="meta-data">
+                                <div id="total-pages">
+                                    pages
+                                </div>
+                                <label>
+                                    <input name="readStatus" id="readStatus" type="checkbox">
+                                </label>
+                            </div>
+                            <p id="summary-box"></p>
+                            <button id="delete">Delete</button>
+                        </dialog>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div class="unread-books">
             <h2></h2>
