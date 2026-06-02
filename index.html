@@ -27,7 +27,7 @@
                         </button>
 
                         <dialog id="add-book">
-                            <button id="close-button" commandfor="add-book" command="close">X</button>
+                            <button class="close-button" commandfor="add-book" command="close">X</button>
                             <form id="book-form">
                                 <h3>Add a book</h3>
                                 <label for="title">
@@ -65,28 +65,30 @@
                         </dialog>
 
                         <dialog id="book-dialog">
-                            <div class="spot">
-                                <div id="easel">.
-                                    <div class="cover">
-                                        <p class="title"></p>
-                                        <img src="./image/book.svg">
-                                        <p id="book-author"></p>
+                            <button class="close-button" commandfor="book-dialog" command="close">X</button>
+                            <div class="container">
+                                <div class="spot">
+                                    <div id="easel" class="shelve-space">
+                                        <div class="cover">
+                                            <p id="book-title" class="title"></p>
+                                            <img src="./image/book.svg" style="width: 24px">
+                                            <p id="book-author"></p>
+                                        </div>
                                     </div>
+                                    <p id="caption-display" class="caption">
+                                    </p>
                                 </div>
-                                <p class="caption display">
-                                    <span class="captionTitle"></span>
-                                </p>
-                            </div>
-                            <div id="meta-data">
-                                <div id="total-pages">
-                                    pages
+                                <div id="meta-data">
+                                    <div id="total-pages">
+                                        pages
+                                    </div>
+                                    <label> read
+                                        <input name="readStatus" id="read-status" type="checkbox">
+                                    </label>
                                 </div>
-                                <label>
-                                    <input name="readStatus" id="readStatus" type="checkbox">
-                                </label>
+                                <p id="summary-box"></p>
+                                <button id="delete">Delete</button>
                             </div>
-                            <p id="summary-box"></p>
-                            <button id="delete">Delete</button>
                         </dialog>
                     </div>
                 </li>

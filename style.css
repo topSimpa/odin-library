@@ -66,7 +66,7 @@ body {
 
 .shelve {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 120px);
+    grid-template-columns: repeat(auto-fit, 150px);
     gap: 24px;
 }
 
@@ -74,9 +74,7 @@ body {
     padding: 16px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
 }
 
 .cover {
@@ -84,6 +82,7 @@ body {
     flex-direction: column;
     gap: 4px;
     align-items: center;
+    justify-content: space-evenly;
     background-color: #fafbff;
     padding: 8px;
     border-right: 1px #fafbff solid;
@@ -94,6 +93,8 @@ body {
     font-weight: bold;
     font-size: 0.9rem;
     cursor: pointer;
+    color: black;
+    text-align: center;
 }
 
 .title {
@@ -164,6 +165,15 @@ input, textarea{
     color:#6f7275
 }
 
+input:focus, textarea:focus {
+    border: 2px solid #2F88FF;
+    outline: none;
+}
+
+input:user-invalid, textarea:user-invalid {
+    border:2px solid red;
+}
+
 textarea {
     resize: none;
 }
@@ -182,7 +192,7 @@ form > button {
     accent-color: red;
 }
 
-#close-button {
+.close-button {
     color: red;
     width: 2rem;
     font-size: 1.5em;
@@ -191,6 +201,51 @@ form > button {
     margin-left: auto;
 }
 
+#book-dialog .container {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+
+#easel {
+    width: 150px;
+    height: 210px;
+    margin: 0 auto;
+}
+
+#caption-display {
+    text-align: center;
+}
+
+#caption-display > .caption-title {
+    color: white;
+}
+
+#meta-data {
+    border-top: 1px white solid;
+    border-bottom: 1px white solid;
+    margin-bottom: 4px;
+    display: flex;
+    gap: 4px;
+}
+
+#summary-box {
+    width: 30ch;
+    color: whitesmoke;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+#delete {
+    color: white;
+    padding: 8px;
+    font-size: 1rem;
+    background-color: red;
+    border-radius: 4px;
+}
 
 @font-face {
     font-family: 'Roboto';
