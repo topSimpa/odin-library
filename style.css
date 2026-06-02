@@ -36,7 +36,7 @@ body {
 }
 
 .spot {
-    min-height: 215px;
+    min-height: 259px;
     display: grid;
     grid-template-rows: 1fr auto;
 }
