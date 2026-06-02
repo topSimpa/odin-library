@@ -30,7 +30,8 @@ body {
 .all-books {
     background-color: white;
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 3fr;
+    gap: 16px;
     padding: 24px;
     border-radius: 8px;
 }
@@ -38,7 +39,7 @@ body {
 .spot {
     min-height: 259px;
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 3fr 1fr;
 }
 
 .filled-spot {
