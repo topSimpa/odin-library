@@ -38,7 +38,7 @@ body {
 .spot {
     min-height: 215px;
     display: grid;
-    grid-template-rows: 3fr auto;
+    grid-template-rows: 1fr auto;
 }
 
 .filled-spot {
