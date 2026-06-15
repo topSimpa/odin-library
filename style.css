@@ -69,6 +69,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, 150px);
     gap: 24px;
+    justify-content: center;
 }
 
 .shelve-space {

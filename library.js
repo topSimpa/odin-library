@@ -24,7 +24,9 @@ class Book {
     #read;
 
     constructor(author, title, pages, summary, read=false, color="brown") {
-        this.#id = crypto.randomUUID();  //this is not be changed anyt
+        //private because they should be only readable, or 
+        // intentionally changed
+        this.#id = crypto.randomUUID();  
         this.#read = read;
 
         this.author = author;
@@ -96,10 +98,7 @@ function displayBook(book) {
     console.log(book.id);
     displayUI.deleteButton.dataset.id = book.id;
     displayUI.deleteButton.addEventListener("click", 
-        () => {
-            console.log(book.id);
-            deleteBook(book.id);
-        }
+        () => deleteBook(book.id)
     );
 
     bookDialog.showModal();
@@ -132,9 +131,7 @@ function createBookDisplay(book) {
 
     //add DisplayBook EventListener
     cover.addEventListener("click",
-        () => {
-            displayBook(book);
-        }
+        () => displayBook(book)
     );
 
     cover.append(title, image, author);
@@ -248,10 +245,5 @@ addBookToLibrary(
   "#FF4500"
 );
 
+
 shelveBooks(...myLibrary);
-
-
-
-
-// console.log(myLibrary)
-// console.log(myLibrary[0].display());
