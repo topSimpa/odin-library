@@ -19,20 +19,33 @@ const displayUI = {
 
 const myLibrary = [];
 
+class Book {
+    #id;
+    #read;
 
-function Book(author, title, pages, summary, read=false, color="brown") {
-    this.id = crypto.randomUUID();
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.read = read;
-    this.summary = summary
-    this.color = color;
-}
+    constructor(author, title, pages, summary, read=false, color="brown") {
+        this.#id = crypto.randomUUID();  //this is not be changed anyt
+        this.#read = read;
 
-Book.prototype.toggleRead = function () {
-    console.log("read Status toggled");
-    this.read = !(this.read);
+        this.author = author;
+        this.title = title;
+        this.pages = pages,
+        this.summary = summary;
+        this.color = color;
+    }
+
+    get id() {
+        return this.#id;
+    }
+
+    get read() {
+        return this.#read;
+    }
+
+    toggleRead() {
+        this.#read = !this.#read;
+    }
+
 }
 
 function addBookToLibrary(author, title, pages, summary, read=false, color="brown") {
@@ -43,6 +56,7 @@ function addBookToLibrary(author, title, pages, summary, read=false, color="brow
 }
 
 function deleteBook(id) {
+    console.log(id);
     const index = myLibrary.findIndex(book => book.id === id);
     const spot = document.querySelector(`li[data-id="${id}"`)
 
@@ -79,9 +93,11 @@ function displayBook(book) {
         displayUI.read.checked = true;
     }
 
+    console.log(book.id);
     displayUI.deleteButton.dataset.id = book.id;
     displayUI.deleteButton.addEventListener("click", 
         () => {
+            console.log(book.id);
             deleteBook(book.id);
         }
     );
