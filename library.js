@@ -208,7 +208,11 @@ function checkPages() {
 }
 
 function checkSummarry() {
+    const wordCount = document.querySelector("#word-count");
     let summaryError = summaryField.parentNode.querySelector(".error");
+
+    //set input character count
+    wordCount.textContent = `(${summaryField.value.length})`
 
     if (!summaryError) {
         summaryError = document.createElement("span");
