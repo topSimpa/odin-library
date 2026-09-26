@@ -1,10 +1,14 @@
 console.log("Hello Odin Library");
 const shelve = document.querySelector(".shelve");
-const bookForm = document.querySelector("#book-form");
 const addBookDialog = document.querySelector("#add-book");
 const books = document.querySelectorAll("button.cover");
 const bookDialog = document.querySelector("#book-dialog");
 
+//element for adding new book to the library
+const bookForm = document.querySelector("#book-form");
+const requiredOnlyFields = document.querySelectorAll(".required");
+const pagesField = document.querySelector("#pages");
+const summaryField = document.querySelector("#summary");
 
 const displayUI = {
     title: bookDialog.querySelector("#book-title"),
@@ -159,10 +163,89 @@ function shelveBooks(...library) {
     }
 }
 
+function checkRequired(event) {
+    //get element
+    const field = event.currentTarget;
+    let errorSpan = field.parentNode.querySelector(".error");
+
+    //create error span if not available
+    if (!errorSpan) {
+        errorSpan = document.createElement("span");
+        errorSpan.classList.add("error");
+        field.parentNode.append(errorSpan);
+    }
+
+    //confirm field validity
+    if (field.validity.valueMissing) {
+        errorSpan.textContent = "This field is required";
+    } else {
+        errorSpan.textContent = "";
+    }
+
+    return field.validity.valid;
+}
+
+function checkPages() {
+    let pagesError = pagesField.parentNode.querySelector(".error");
+
+    //create pageerrror span if not available
+    if (!pagesError) {
+        pagesError = document.createElement("span");
+        pagesError.classList.add("error");
+        pagesField.parentNode.append(pagesError);
+    }
+
+    
+    if (pagesField.validity.valueMissing) {
+        pagesError.textContent = "field is required";
+    } else if (pagesField.validity.rangeUnderflow) {
+        pagesError.textContent = "value must be greater than 0"
+    } else {
+        pagesError.textContent = "";
+    }
+
+    return pagesField.validity.valid;
+}
+
+function checkSummarry() {
+    let summaryError = summaryField.parentNode.querySelector(".error");
+
+    if (!summaryError) {
+        summaryError = document.createElement("span");
+        summaryError.classList.add("error");
+        summaryField.parentNode.append(summaryError);
+    }
+
+    if (summaryField.validity.valueMissing) {
+        summaryError.textContent = "This field is required"
+    } else if (summaryField.validity.tooShort) {
+        summaryError.textContent = "This field must be at least 50 character long"
+    } else {
+        summaryError.textContent = "";
+    }
+
+    return summaryField.validity.valid;
+}
+
+
+
+requiredOnlyFields.forEach((field) => {
+    field.addEventListener("input", checkRequired);
+});
+
+pagesField.addEventListener("input", checkPages);
+summaryField.addEventListener("input", checkSummarry);
 
 bookForm.addEventListener("submit",
     (event) => {
         event.preventDefault();
+
+        const formError = bookForm.querySelector(".form.error");
+
+        if (!bookForm.checkValidity()) {
+            formError.textContent = "Complete invalid field in red to submit form";
+            return;
+        }
         
         //collect form entry
         const bookEntry = new FormData(bookForm);

@@ -160,20 +160,27 @@ fieldset {
     align-items: center;
 }
 
-
 input, textarea{
     padding: 4px;
     border-radius: 4px;
     color:#6f7275
 }
 
-input:focus, textarea:focus {
-    border: 2px solid #2F88FF;
-    outline: none;
+input:user-invalid, 
+textarea:user-invalid {
+    border-bottom: 8px solid #ff2f40;
+    transition: 0.4s ease;
 }
 
-input:user-invalid, textarea:user-invalid {
-    border:2px solid red;
+input:user-valid,
+textarea:user-valid {
+    border-bottom: 8px solid #2fff74;
+    transition: 0.4s ease;
+}
+
+input:focus-visible, textarea:focus-visible {
+    outline: 2px solid #2F88FF;
+    /* outline: none; */
 }
 
 textarea {
@@ -189,13 +196,16 @@ form > button {
     font-weight: bold;
 }
 
-.asterisk, input[type="radio"] {
-    color:red;
-    accent-color: red;
+.asterisk, .error {
+    color: #ff2f40;
+}
+
+input[type="radio"] {
+    accent-color: #2fff74;
 }
 
 .close-button {
-    color: red;
+    color: #ff2f40;
     width: 2rem;
     font-size: 1.5em;
     background-color: inherit;
@@ -245,7 +255,7 @@ form > button {
     color: white;
     padding: 8px;
     font-size: 1rem;
-    background-color: red;
+    background-color: #ff2f40;
     border-radius: 4px;
 }
 
